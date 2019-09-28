@@ -25,7 +25,7 @@ SECRET_KEY = '-a$$tsz7#-wlai2lwn@4qn%yg0su2$m$jk3-$0-d4i77r(!&uh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["192.168.0.4"]
 
 
 # Application definition
@@ -82,8 +82,9 @@ WSGI_APPLICATION = 'storefront.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'djongo',
+        'NAME': 'storefront-api-db', 
+        'ENFORCE_SCHEMA': 'false',
     }
 }
 
