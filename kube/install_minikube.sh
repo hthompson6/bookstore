@@ -18,3 +18,17 @@ then
     echo "$(sudo kvm-ok)" 
     exit 1
 fi
+
+sudo apt update
+sudo apt install -y qemu qemu-kvm libvirt-bin bridge-utils virt-manager
+
+sudo service libvirtd start
+sudo update-rc.d libvirtd enable
+
+CHECK_LIBVIRT_STATUS=$(sudo service libvirtd status | egrep -c "active")
+
+if [[ $CHECK_LIBVIRT_STATUS -le 0 ]]
+then
+    echo "ERROR: libvirt Service Not Started"
+    exit 1
+fi
