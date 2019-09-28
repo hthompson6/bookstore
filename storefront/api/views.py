@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from .models import Book
 from .serializers import BookSerializer
 
-@apiview(['GET', 'POST'])
+@api_view(['GET', 'POST'])
 def book_list(request):
     '''
     Get a collection or Create a single resource
@@ -12,17 +12,21 @@ def book_list(request):
     if request.method == 'GET':
         books = Book.objects.all()
         serializer = BookSerializer(books, many=True)
-        return Reponse(serializer.data)
+        return Response(serializer.data)
 
     elif request.method == 'POST':
         serializer = BookSerializer(data=request.data)
         if serializer.is_valid():
-            import pdb; pdb.set_trace()
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATE)
+
+    return Response(status=status.HTTP_400_BAD_REQUEST)
         
 
-@apiview(['GET', 'POST', 'DELETE'])
-def book_detail(request):
+@api_view(['GET', 'POST', 'DELETE'])
+def book_detail(request, book_id):
     '''
     Get, Update, or Delete a single source
     '''
-    pass
+    serializer = BookSerializer(data=request.data)
+    return Response(status=status.HTTP_400_BAD_REQUEST)

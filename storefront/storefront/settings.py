@@ -84,7 +84,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'storefront-api-db', 
-        'ENFORCE_SCHEMA': 'false',
+        'ENFORCE_SCHEMA': False,
     }
 }
 
