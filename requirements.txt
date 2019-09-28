@@ -1,0 +1,5 @@
+django
+djangorestframework
+pygments
+djongo=1.2.31
+sqlparse=0.2.4
