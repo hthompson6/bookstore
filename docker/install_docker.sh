@@ -1,3 +1,11 @@
+echo "========Installing Nginx========"
+sudo apt update
+sudo apt install nginx
+
+echo "========Opening Firewall For Nginx (80/443)========"
+sudo ufw allow 'Nginx Full'
+
+echo "========Installing Docker========"
 sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 
@@ -9,3 +17,6 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 
 sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+
+echo "========Installing Docker Compose========"
+sudo apt-get install docker-compose

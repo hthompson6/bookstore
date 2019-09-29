@@ -1,0 +1,30 @@
+version: "3"
+services:
+  web:
+    build:
+      context: ../storefront
+      dockerfile: Dockerfile
+    volumes:
+      - ../storefront/:/usr/src/storefront
+    ports:
+      - "8000:8000"
+    stdin_open: true
+    tty: true
+    environment:
+      - DEBUG=True
+      - SECRET_KEY=foobar
+      - MONGO_HOST=db
+    depends_on:
+      - db
+  db:
+    image: mongo
+    ports:
+     - "27017:27017"
+  nginx:
+    build:
+      context: ../nginx
+      dockerfile: Dockerfile
+    ports:
+      - 1337:80
+    depends_on:
+      - web
