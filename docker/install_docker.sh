@@ -1,3 +1,10 @@
+echo "========Installing Nginx========"
+sudo apt update
+sudo apt install nginx
+
+echo "========Opening Firewall For Nginx (80/443)========"
+sudo ufw allow 'Nginx Full'
+
 echo "========Installing Docker========"
 sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
