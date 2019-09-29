@@ -1,8 +1,14 @@
-version: "2"
+version: "3"
 services:
-  app:
-    build: .
-  db:
-    image: mongo
+  web:
+    build:
+      context: ../storefront
+      dockerfile: Dockerfile
+    command: python3 manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ../storefront/:/usr/src/bookstore/storefront
     ports:
-      - "27017:27017"
+      - 8000:8000
+    environment:
+      - DEBUG=True
+      - SECRET_KEY=foobar
