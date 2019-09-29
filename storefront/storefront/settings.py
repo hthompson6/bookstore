@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'foobar'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.enviroment('DEBUG', default=False))
+DEBUG = bool(os.environ.get('DEBUG', default=False))
 
 ALLOWED_HOSTS = ['*']
 
@@ -85,6 +85,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'storefront-api-db', 
+        'HOST': os.environ.get('MONGO_HOST', '127.0.0.1'),
         'ENFORCE_SCHEMA': False,
     }
 }

@@ -4,11 +4,19 @@ services:
     build:
       context: ../storefront
       dockerfile: Dockerfile
-    command: python3 manage.py runserver 0.0.0.0:8000
     volumes:
-      - ../storefront/:/usr/src/bookstore/storefront
+      - ../storefront/:/usr/src/storefront
     ports:
-      - 8000:8000
+      - "8000:8000"
+    stdin_open: true
+    tty: true
     environment:
       - DEBUG=True
       - SECRET_KEY=foobar
+      - MONGO_HOST=db
+    depends_on:
+      - db
+  db:
+    image: mongo
+    ports:
+     - "27017:27017"
