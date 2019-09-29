@@ -1,5 +1,9 @@
 version: "3"
 services:
+  db:
+    image: mongo
+    ports:
+      - "27017:27017"
   web:
     build:
       context: ../storefront
@@ -11,15 +15,9 @@ services:
     stdin_open: true
     tty: true
     environment:
-      - DEBUG=True
-      - SECRET_KEY=foobar
       - MONGO_HOST=db
     depends_on:
       - db
-  db:
-    image: mongo
-    ports:
-     - "27017:27017"
   nginx:
     build:
       context: ../nginx
