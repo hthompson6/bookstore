@@ -3,17 +3,18 @@ services:
   db:
     image: mongo
     ports:
-      - "27017:27017"
+      - 27017:27017
   web:
     build:
       context: ../storefront
       dockerfile: Dockerfile
     volumes:
       - ../storefront/:/usr/src/storefront
+    command: gunicorn storefront.wsgi:application --bind 0.0.0.0:8000
     ports:
-      - "8000:8000"
-    stdin_open: true
-    tty: true
+      - 8000:8000
+    expose:
+      - 8000
     environment:
       - MONGO_HOST=db
     depends_on:
@@ -23,6 +24,6 @@ services:
       context: ../nginx
       dockerfile: Dockerfile
     ports:
-      - 1337:80
+      - 80:80
     depends_on:
       - web
