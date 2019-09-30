@@ -1,5 +1,6 @@
 django
 djangorestframework
 pygments
+gunicorn==19.9.0
 djongo==1.2.31
 sqlparse==0.2.4
