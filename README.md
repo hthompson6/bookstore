@@ -68,7 +68,7 @@ $ ./uninstall.sh
 
 ## Road To Production
 1. Add unit tests
-2. Utilize ssl certs to enforce https
+2. Utilize ssl certs and enforce https
 3. Shift to Kubernetes:
    - Utilize docker hub or local registery (depending on resource)
    - Leverage the nginx ingress controller instead of nginx docker image
