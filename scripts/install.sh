@@ -11,6 +11,8 @@ echo "========Installing Nginx========"
 sudo apt update
 sudo apt install -y nginx
 
+sudo service nginx stop
+
 echo "========Opening Firewall For Nginx (80/443)========"
 sudo ufw allow 'Nginx Full'
 
