@@ -35,7 +35,7 @@ $ curl -d '{"author":"test_author", "title":"test_title", "pub_date": "2019-01-0
 {"book_id":1,"author":"test_author","title":"test_title","pub_date":"2019-01-01"}
 ```
 
-* Note the end point hit is `http://<host_ip>/api/book`
+* Note the endpoint hit is `http://<host_ip>/api/book`
 
 ### Update Resource
 ```bash
@@ -43,7 +43,7 @@ $ curl -d '{"author":"new_author", "title":"new_title", "pub_date": "2019-02-01"
 {"book_id":1,"author":"new_author","title":"new_title","pub_date":"2019-02-01"}
 ```
 
-* Note the end point hit is `http://<host_ip>/api/book/<book_id>`
+* Note the endpoint hit is `http://<host_ip>/api/book/<book_id>`
 
 ### Get Collection
 ```bash
