@@ -5,5 +5,9 @@ WORKDIR /usr/src/storefront
 
 RUN pip3 install -r requirements.txt
 
+COPY ./entrypoint.sh /usr/src/storefront/entrypoint.sh
+
 COPY . /usr/src/storefront
-RUN pip3 install -e . 
+RUN pip3 install -e .
+
+ENTRYPOINT ["/usr/src/storefront/entrypoint.sh"]

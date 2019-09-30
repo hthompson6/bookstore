@@ -9,7 +9,7 @@ services:
       context: ../storefront
       dockerfile: Dockerfile
     volumes:
-      - ../storefront/:/usr/src/storefront
+      - static_volume:/usr/src/storefront/staticfiles
     command: gunicorn storefront.wsgi:application --bind 0.0.0.0:8000
     ports:
       - 8000:8000
@@ -23,7 +23,12 @@ services:
     build:
       context: ../nginx
       dockerfile: Dockerfile
+    volumes:
+      - static_volume:/usr/src/storefront/staticfiles
     ports:
       - 80:80
     depends_on:
       - web
+
+volumes:
+  static_volume:
