@@ -23,11 +23,11 @@ $ sudo docker-compose down -v
 * Book IDs are created server side are read-only
 
 ### WebUI
-The REST API can be interacted with via a WebUI found at the `<ip_host>/api/book`
+The REST API can be interacted with via a WebUI found at the `http://<ip_host>/api/book`
 
 ### Create Resource
 ```bash
-$ curl -d '{"author":"test_author", "title":"test_title", "pub_date": "2019-01-01"}' -H "Content-Type: applicatin/json" -X POST http:<host_ip>/api/book/
+$ curl -d '{"author":"test_author", "title":"test_title", "pub_date": "2019-01-01"}' -H "Content-Type: applicatin/json" -X POST http:<host_ip>/api/book
 {"book_id":1,"author":"test_author","title":"test_title","pub_date":"2019-01-01"}
 ```
 
@@ -48,7 +48,7 @@ $ curl http://<host_ip>/api/book
 
 ### Get Single Resource
 ```bash
-$ curl http://<host_ip/api/book/<book_id>
+$ curl http://<host_ip>/api/book/<book_id>
 ```
 
 ### Delete Resource
@@ -63,3 +63,11 @@ $ ./uninstall.sh
 ```
 
 ## Road To Production
+1. Add unit tests
+2. Utilize ssl certs to enforce https
+3. Shift to Kubernetes:
+   - Utilize docker hub or local registery (depending on resource)
+   - Leverage the nginx ingress controller instead of nginx docker image
+   - Prometheus monitoring
+   - etc.
+4. Jenkins/CI tooling
