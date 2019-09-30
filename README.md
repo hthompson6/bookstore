@@ -22,7 +22,7 @@ $ sudo docker-compose down -v
 
 ## Usage
 * Please note that it can take some time for the Nginx service to start fully. A 502 bad gateway response may be returned at first.
-* Book IDs are created server side are read-only
+* Book IDs are created server side and are read-only
 
 ### WebUI
 The REST API can be interacted with via a WebUI found at the `http://<ip_host>/api/book`
