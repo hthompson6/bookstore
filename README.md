@@ -12,6 +12,8 @@ $ cd /path/to/bookstore/docker
 $ sudo docker-compose up -d --build
 ```
 
+![Docker Containers](/doc/containers.png)
+
 ### Tearing Down Containers
 ```bash
 $ cd /path/to/bookstore/docker
@@ -24,6 +26,8 @@ $ sudo docker-compose down -v
 
 ### WebUI
 The REST API can be interacted with via a WebUI found at the `http://<ip_host>/api/book`
+
+![Rest API](/doc/rest.png)
 
 ### Create Resource
 ```bash
