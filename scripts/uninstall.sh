@@ -1,5 +1,5 @@
 echo "========Uninstalling Docker========"
-sudo apt-get purge -y docker-ce
+sudo apt-get purge -y docker-ce docker-ce-cli containerd.io
 sudo rm -rf /var/lib/docker
 
 echo "========Uninstalling Docker Compose========"
